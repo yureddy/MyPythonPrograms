@@ -1,0 +1,11 @@
+FileHandle = open('Radishsurvey.txt','r+')
+FHtoVerify = open('Deleteme.txt', 'w') 
+while FileHandle.read() != ""
+	Line = FileHanlde.read()
+	Line = Line.split()
+	FHtVerify.write(Line)
+FileHandle.close()
+FHtoVerify.close()
+
+
+
