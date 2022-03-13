@@ -1,0 +1,21 @@
+Class definionts likde funciton definitions must be executed before they have any efferct 
+You can put a class definiont in a branch of an if statment or inside a funciton
+
+In general, statements insdie a class definiont will usually be a function definiont.
+But other statements are allwoed.
+
+Function definionts inside a class normally have a peculiar form of argument list, dictated by 
+calling conventions of methods 
+
+When a class definion is entered a new namespace is created, and used as the local scope.
+Thus all the assignments to local variable go into this new namespace. In particular, funciotn 
+definions bind the name of new function here.
+
+When a class definion is left normally, a class object is created.
+this is basically a wrapper around the contents of namespace cretad by the class definitions
+i.e after the class definions ends the original local scope (the one in effect just before the class definions was entered)
+is reinstated, the class object is bound here to the class name given in the class definitoni header
+
+
+CLASS OBJECTS 
+

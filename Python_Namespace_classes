@@ -1,0 +1,63 @@
+A Namespace is a mapping from names to objects
+Most Namespaces are implemented as python dictionaries
+
+Attribute - is referenced thru dot.
+z.real - real is an Attribute of object z.
+references to names in modules are attrbute references.
+modname.funcname - modname is a module object and funcname is an attribute of it.
+
+Attributes may be read only or writable.
+assignment to attributes is possible.
+modname.the_asnwer =43
+Writable attributes may also be deleted with del statement.
+del modname.the_asnwer
+This will remove the attribute the_asnwer from object modname
+
+Namespaces are created at different moments and have different lifetimes.
+**Namespaces containing the built-in names is created when python interepreter starts up and is never deleted
+**The global names for a module is created when the module definiont is read in,
+**normally module namespace also last until the interepreter quits.
+**The statements executed by the top-lvel invocation of the interepreter, 
+** either read from a script file or intereactively are considered part of a module called __main __
+** So they have thier own global namespace 
+** The built-in names actually also live ina module, called builtins
+
+** the local namespace of a function is creatd when a funciton is called, and deleted when funciton
+    returns or raised an exception that is not handled in the funciton
+** Recursive function each will have their own local Namespaces
+
+** A scope is a textual region of python program where a namespace is directly accessable.
+Direct access means an unqualified reference to a name attempts to find the name in the namespace
+
+
+##** 3 or 4 nested scops whose namespaces are directly accessable
+1. The innermost scope, which is a search first, contains the local names
+2. The scoopes of any enclosing functions, whixh are searched starting with the nearest enclosing scope.
+    contains non-local but also non global names
+3. the next t0 last scope contains the current global names
+4. the outermost scope is namespace containing the built in names
+
+** if a nams is declared global then all references and assignments go directly to the middle 
+** to rebind varialbe found outside of the innermost scoe the nonlocal statements can be used.
+
+
+** Usually the local scope references the local names of the textualy current function.
+        outside the functions, the local scope referencs the same namespace as global scope: modules namespace
+        Class defininon place yet another namespace in the local scope
+
+
+The acutal search of names is done dynamically at runtime - however the lanugage defininion is evolving 
+towards static name resolution at compile time so dont rely on dyanmic name resolution 
+in fact, local variable are already determind statically
+
+if (global or nonlocal) are not given to names , by default the names go into innermost scope.
+*** assignments do not copy data they just bind names to objects
+    same is true for deletion del x - deletes the binding of x from the name space referenced by local scope.
+
+** All operations that introduce new names use the local scoopes
+    in particual import statements and function defininon bind the module or function name in local scope
+
+* Global statement - indicate that particual varaibl live in global scope and shold be reboud the_asnwer
+* nonlocal statment indicate that particual r varaible live in an enclosing scope ans should be rebound the_asnwer
+
+

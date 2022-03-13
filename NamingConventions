@@ -1,0 +1,7 @@
+Generally use prefix of Lowercase to denote a varialbe that represetnts an object
+this is a way to remind myself that a varialbe represents an object
+
+oLightSwitch = LightSwitch()
+
+We gernarlly say oLightSwitch is object/instance of LightSwitch
+
