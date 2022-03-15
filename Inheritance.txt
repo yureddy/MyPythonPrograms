@@ -1,0 +1,90 @@
+
+Syntax for derived class definintion looks like
+
+class DerivedClassName(BaseClassName):
+    <statement-1>
+    .
+    .
+    <statement-N)
+
+The name BaseClassName must be defined in a scope containing the derived class definintion
+In place of BaseClassName, other expressions are allowed
+like when Base class is defined in another module
+
+class DerivedClassName(modName.BaseClassName):
+
+Execution of derived class definition proceeds the same as base class.
+When a class object is constructed, the base class is remembered
+This is used for resolving attribute references: if a requested attribute is not found in a class   
+    the search proceeds to look in the base class. This rule is applied recursively if the base 
+    class itself is derived from some other class
+
+There is nothing special about instantiation of derived classes: DerivedClassName() creates a new
+instance of the class. Method references are resolved as followes: the corresponding class 
+attribute is earched, descending down the chain of base classes if neccessary, and the method 
+reference is valid if this yields a function object
+
+Derived classes may override methods of thier base classes.
+Beacuse methods have no special privilages when calling other methods of same object, a method 
+of a base class that calls antoher method defined in the same base class may end up calling a method
+of a derived class that overrides it.
+(for C++ programmers all methods in pyton are effectively virtual)
+
+An overriding method in a derived class may in fact want to extend rather than simply replace the 
+base class method of the same name
+
+BUILT in FUNCTIONS that work with INHERITENCE
+1. use isinstance() to check an instance type: isinstance(obj, int) will be True only if 
+    obj.__class__ is int or saome class derived from int
+2. use issubclass() to check class inheritence: issubclass(bool, int) is true since bool is a 
+    subclass of int. However, isssubclass(float, int) is false since float is not subclass of int
+
+
+MULTIPLE INHERITENCE
+    a class definition with multiple inheritence looks like
+    class DerivedClassName(Base1, Base2, Base3):
+        <statement 1>
+        . 
+        . 
+        <statement-N>
+
+    For most purposes, you can think of search for attributes inherited from a parent class as 
+    depth-first, left-to-right, not seraching twice in the same class where there is an overlap 
+    in the hierarchy. Thus, if an attribute is not found in DerrivedClassname., it is serached for 
+    Base1, then recursively in the base classes of Base1, and if it was not found there, it was 
+    serached for in Base2, and so on
+
+    Its more complex, the method resolution order changes dynamically to support coopoerative calls
+    to super(). 
+
+    **Dynamic ordering is necessary because all cases of multiple inheritiance exhibit one or more
+    diamond relationships (where at least one of the parent classes can be accesses thru multiple paths
+    from bottom most class). 
+    For example: all classes inherit from object, so any case of multiple inheritance provide more than 
+    one path to reach object. To keep the base classes from being accessed more than once, the dynamic
+    algorithm linearizes the serach order in a way that preserves the left to right ordergin specified
+    in each class, that calls each parent only once,that 
+
+
+PRIVATE VARIABLES
+    **Its not possible to have private variables in python
+    I.e instance variables that cannot be accessed except from inside an object doesnt exist in python
+    ** Solution is thru a convention followed by most of the Python code.
+    SOlution: A name prefixed with an underscore(e.g: _spam) should be treated as non public part of 
+    the API (whether it is a function, a method or a data memeber). it should be considerd an implemn
+    detail and subject to change without notice
+
+    There is an important use-case for class-private members(to avoid name clashes of names with names
+    defined by subclass), there is limited suport for such mechsnism , called name mangling.
+    *NAME MANGLING:
+        Any identifier of the form __spam(atleast two leading underscores, atmost one trailing underscore)
+        is textually replaced with _classname_spam, where classname is the current class name with leading
+        underscore(s) stripped. 
+        The mangling is done without regard to syntatic position of the identifier, as long as it occurs
+        within the defition of a class.
+
+        Name mangling allows subclasses override methods without breaking intraclass method calls.
+    mangling rules are designed to avoid accdient, it is still possible to acces or modify a variable that
+    is considerd private. This is useful in special circumstances as debugger.
+
+    

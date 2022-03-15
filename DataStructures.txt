@@ -1,0 +1,13 @@
+SEQUANCES 
+These represnet finite ordered set indexed by non-negative numbers.
+the built-in function len() returns the number of items of a sequance 
+
+SLICING
+Sequances also support slicing. a[i:j] selects all items with index k such that
+i<=k<j When used as an expression, a slice is a sequance of same type. 
+
+EXTENDED slicing.
+Some sequances also support extended slicing third paramer a[i:j:k] selects all
+items of with index x where x =i + n*k, n >=0 and i<=x<j
+
+Sequnces are distinguished according to their mutability.

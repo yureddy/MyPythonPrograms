@@ -1,0 +1,27 @@
+By now you have probably notceid that most container objects can be looped over using a for statement
+
+example 
+for element in [1,2,3]:
+for char in "123":
+for line in open('myfile.txt'):
+
+the style of access is clear, concise, and conveniant. The use of iterators pervades and unifies 
+Python. 
+Behind the scenes the for statement calls iter() on container object.
+the function returns an iterator object that degines the method __next__() which access elements In 
+    the container one at a time. 
+    When there are no more elements, __next__() raises a StopIteration exception which tells to 
+    terminate the for loop. 
+    You can cal __next__() method using the next() built-in function:
+    example
+    s = 'abc'
+    it = iter(s)
+    next(it)
+    'a'
+    next(it)
+    'b'
+    . it will reach StopIteration exception 
+
+ Having seen the mechhanics behind the iterator protocol, it is easy to add iterator behaviour to your
+ classes. Define an __iter__() method which returns an object with a __next__() mehthod.
+    

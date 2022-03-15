@@ -1,0 +1,7 @@
+Geneartor are simple and powerfull tool for creating iterator.
+They were written like regular functions but use the yield statement whenever thy want to return data
+
+Each time next() is called on it , the generateor resumes where it left off (it remembers all the data
+values and which statemnt was last executed). An example shos that generator can trivially easty to 
+create.
+

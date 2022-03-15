@@ -1,0 +1,33 @@
+One of the best qualities of python is its consisitancy. 
+After working with python for a while, you aare able to start making informed, correct guesses about 
+    features that rea new to you.
+
+PYTHON DATA MODEL
+Data model as a description of python as framework. It formalizes the interfaces of the building 
+blocks of the language itself, such as sequances, functions, iterators, coroutintes, classes, context
+    managers.
+
+When using a framework, we spend a lot of time coding methods that are called by framework.
+The same happens when we leverage the python data model to build new classes 
+
+The python interpreter invokes special methods to perform bascic object operations, often triggered
+    by special syntax.
+
+The special method names are always written with leading and trailing double underscores 
+Example:
+    obj[key] is supported by __getitem__ special method
+    In order to evaluate my_collection[key], the interprester calls my_collection.__getitem__(key)
+
+We implement special methods when we want our objects to suport or interact with fundamental language
+constructs such as:
+1.Collections
+2.Attribute access
+3. Iteration (including async iteration using async for)
+4. Operator overloading
+5. Function and method invocation
+5. Strin representation and formatting
+6. Asyn programming using 
+7. Object creation and destruction
+7. Managed contexts using the with or async with statements.
+
+SPECIAL METHODS = MAGIC METHOD = DUNDER (Duble underscore before and after)

@@ -18,4 +18,89 @@ is reinstated, the class object is bound here to the class name given in the cla
 
 
 CLASS OBJECTS 
+Class objects support two kinds of operations
+    attribute references 
+    instantiations
+
+attribute refernces:
+    they use standard syntax used for all attribute references in Python: obj.name
+    Valid attribute names are all the names that were in class namesapce when the class objects
+        was created 
+    if class defnition look likde
+    class Myclass:
+        """ A simple example """
+        i =1234
+
+        def f(self):
+            return "hello world"
+
+    here    
+        Myclass.i and Myclass.f are valid attribute references, returning integer and a function object.
+        Class attributes can also be asinged to, so you can change the value of Myclass.i by assignment
+        .__doc__ is also a valid attribute , returning the docstring belonging to the class
+instantiation
+    Class instantiation uses function notation.
+    Think as if class object is a parameter less function that returns new instance of a class
+    x = Myclass()
+    creates a new instance of a class and assigns the object to local varialbe x
+    instantiationoperation (calling a class object) creates an empty object.
+
+    Many classes like to create object with instances customized to specific initial statements     
+    Therefore a class may define a special methods called __init__()
+    def __init__(self):
+        self.data = []
+
+INSTANCE OBJECTS
+    The only operations understaood by instance objects are attribute references    
+    Two valid attribute names: data attributes and methods
+
+    Data attributes needs not be declared like local varaible, they spring into existance when they
+    are first assigned to.
+
+    Other kind of instance attribute reference is a method
+    A method is a function that belongs to an object.( In Python, the term method is not unique to 
+        class isntances: other object types can have methods as well
+        list objects have methods called append, insert, remove, sort and so on
+    
+    **By definion, all attributes of a class that are function objects define corresponding methods of
+    its instance Example: x.f is a valid methods reference, since Myclass.f is a funciotn object
+    But, x.f is not same thing as Myclass.f -- its a method object not a funciton object
+
+
+METHOD OBJECTS
+    Usually a method is called and executed right after its encountered.
+    >>x.f()
+    Its not necessary to call a method right away x.f is a method object and can be stored
+    away and called at a later time
+    >>xf.x.f
+    while True:
+        print(xf())
+    notice that x.f() is called without an argument above, even thow f() fucntion definiont specify
+    an argument 
+    The special thing about methods is that the instance object is passed as the first argument of 
+    function, i.e x.f() is exactly equivalent to Myclass.f(x) 
+    In general, calling a methods with a list of n arguments is equivalent  to calling the corresponding
+    function with an argument list that is created by inserting th emethods instance object
+
+CLASS and INSTANCE VARIABLES
+    refer to other notes
+
+NOTES: 
+    1. if same attribute name occurs in both an instance and in a class 
+        then attribute lookup prioritizes the instance
+    2. Each value is an object, and there fore has a class(also called its type) stored as
+        objec.__class__
+    
+SECRET
+Module objects have a secret read-only attribute called __dict__ which returns the dictionary used 
+to implement the modules namespace; 
+the name __dict__ is an attribute not a global name.
+Use this only for post morterm debuggers
+
+
+
+OBJECTS
+A object has two charaacterstics
+    attributes  
+    behaviour 
 

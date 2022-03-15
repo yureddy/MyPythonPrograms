@@ -1,0 +1,65 @@
+Types built into python
+Future versions of Python may add types to type hierarch (eg rational numbers, efficianlty stored arrays of ints etc)
+Generally such additions are provided by standard librarty
+
+NONE 
+this type has single value
+there is only one single object with this value.
+the object is accessed with built-in name None 
+This is used to signify the absenese of value in many situations.
+Its truth value is FALSE 
+
+NOTIMPLEMENTED 
+This type has single value 
+There is a single object with this value.
+This is accessed thru a built in name called NotImplemented 
+Numeric methods and rich comparison methods shold return this value if they do not implement operation for operands provided 
+It shold not be evaluated in boolean context. 
+
+ELIPSES 
+this is a sinle value 
+This is a single object with this value 
+the object is accessed with ligteral "..." or built in name Ellipses 
+its truth value is true.
+
+NUMBERS.NUMBERS 
+These are created by numeric literals and resuturned as results by arithematic opeators and 
+ built in funcitons.
+Numeric  objects are immutable once created their values never changes 
+Python numbers are strongly related to mathamatical numbers, but subject to limitations of numerical repr 
+    in computers. 
+String representation of numeric calsses computed by __repr__() and __Str__()
+The representtion is in base 10 
+A sign is shown only when negative.
+Python distinguishes between integers, floating point numbers and complex numbers
+
+NUMBERS.INTEGRAL
+represnting set of integers (postive and negative)
+there are two type of integers 
+integer(int)
+    these represent numbers in unlimited range, subjected to availble (virtual) memory only.
+    For purpose of shift and mask operations, a binary representation is assumed
+    **Negitive numbers are reprenseted in 2's complimet - giving an illusion of infinite string of sign
+            bits extending to left.
+Booleans(bool)
+    The two objects representing the values, Fase and true are only Boolean objects.
+    Boolean type is subtype of integer type.
+    They behave like 0 and 1 in almost all context.
+    the exception being that when converted to a string the strings "False " and "True" are returned.
+THe rules of int representation are for most meaning ful interpreation of shift and mask operations 
+    involving negative integers.
+
+NUMBERS.REAL(float)
+These represent machine-level double precision floatin point numbers. 
+You are at mercy of underlying machine architecture for accepted range and handling of overflow.
+Python doesnt support single preciions flation point numbers.
+
+NUMBERS.COPMLEX(complex)
+These represent complex numbers as a pair of machine-level double precions floating point numbers 
+The real and imageinary parts of copmlext numbers z can be retrieved through the read only attributes
+z.real and z.imag
+
+
+
+
+
