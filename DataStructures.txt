@@ -10,4 +10,92 @@ EXTENDED slicing.
 Some sequances also support extended slicing third paramer a[i:j:k] selects all
 items of with index x where x =i + n*k, n >=0 and i<=x<j
 
-Sequnces are distinguished according to their mutability.
+
+Sequances are distinguished accordig to their mutability
+
+IMMUTABLE SEQUANCES 
+Object cant be changed after creation. You can change the mutable objectx referenced inside 
+this immutable objects.
+Hoever you cant change the collection of objects directly referenced by an immutable object 
+
+IMMUTABLE - STRINGS 
+A string is sequance of values that represent Unicode code points.
+All the code points in the ranvge U+0000 - u+10FFFF can be represeted in a string.
+Python doesnt have a char type:
+instead, every code point in the string is represented as a string object with length 1 
+the built in function "ord()" converts a code point from its string form to int in range 0 - 10FFFF:
+"chr()" converts an integer in the range 0 - 10FFFFF to corresponding lenght 1 string object .
+"str.encode()" can be used to convert str to bytes using the given text encoding.
+"bytes.decode()" can be used to achieve the opposite. 
+
+IMMUTABLE - TUPLES 
+Tuple of two or more items are formed by comma-seperated lists of expressions 
+A tuple of one item(a singleton) can be formed by affixing a comma to an expression 
+An empty tuple created by empty pair of paranthesis 
+
+IMMUTABLE - BYTES 
+A Byte object is immutable array. 
+The itesm are 8-bit bytes, represented by int in range 0 < =x < 256 
+Bytle literals lik b'abc' and the built-in "bytes()" constructor can be used to created byte objects.
+byte objects can be decoded to strings vis the decode() method. 
+
+
+MUTABLE SEQUNNCES
+can be changed after creation.
+the subscrption and slicing notations can be used as targe of assignment and del(delete ) statements.
+There are two intrensic mutable sequance types
+
+MUTABLE-LIST 
+The items of a list are arbitarary python objects 
+Lists are formed by placing a comma seperator list of expression in square brackets.
+
+MUTABLE- BYTE ARRAYS 
+A byte array object is a mutable array.
+they are created by the built in bytearray() constructor 
+As they are mutable they are unhashable
+They provide same interface and functionality as immutable byte objects ...
+
+The extention module "array" provides an additional mutable seq type as does the 
+    "collections" module. 
+
+SET TYPES     
+ These represent unordered, finiete sets of unique immutable objects.
+ they cant be indexed with any subscript 
+ They can be iterated over 
+ len() - returns number of items in a set 
+ **Common use of sets are fast membership testing , removing duplicates from a seqaunce 
+    copmuting mathatmaticatl operations such as intersection, ujnion, difference 
+ Numeric types objey normal rules for numeric copmarieison
+ if two numbers copmare equal(1 and 1.0 ) noly one of them contained in set 
+
+ there are two intrensic set types
+
+SET TYPES - SETS 
+These represent a mutable set 
+they are creatd by built in set () constructor and can be modified afterwards by several methods 
+such as add()
+
+SET TYPES - FROZEN SETS 
+these represent immutable set 
+they are creatd by built-in frozenset() constructor 
+As frozen set is immutable and hashable it can again be used as an elemnt of another set or dictionary key 
+
+MAPPINGS
+These represent finiete sets ofobjects indexed by arbitrary index sets 
+The subscript notation a[k] selects the item indexed by k from the mapping a 
+this can be used in expressions and as the target of assignmetn or del statements. 
+
+MAPPING - DICTIONARIES 
+set of objects indexed by nearly arbiratily valyes.
+the only values not acceptable as jesy are value containing lists or dictionaries or mutable types
+That are compared by value rather than by object identity 
+** Effieciant implemetntaion of dictionaries requries a keys hash values to reamin constant
+Numeric types used for keys obey the noral rules for numeric copmariesoin
+DICTIONARIES presever insertion order , i.e keys wil eb produced in same order as added 
+Replacing an exisint key doent change the order 
+** extension modules dbm.ndbm and dbm.gnu provdide more mapping types 
+collections module also provide 
+Dicitonaries dont preseve insertion order in version of python before 3.6 
+
+
+
